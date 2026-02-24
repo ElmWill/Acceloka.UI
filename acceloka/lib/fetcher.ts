@@ -10,7 +10,13 @@ export async function fetcher<T>(
         },
     });
     if (!res.ok) {
-        throw new Error(`Failed to fetch: ${res.status} ${res.statusText}`);
+        const contentType = res.headers.get('content-type');
+
+        if (contentType?.includes('application/problem+json')) {
+            const problem = await res.json();
+            throw new Error(problem.title || 'An error occurred');
+        }
+        throw new Error(`HTTP error! status: ${res.status}`);
     }
     return res.json();
 }

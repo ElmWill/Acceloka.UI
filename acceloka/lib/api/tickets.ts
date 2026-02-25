@@ -1,5 +1,5 @@
 import { fetcher } from "../fetcher";
-import { GetBookedTicketResponse } from "../types/BookedTicket";
+import { GetBookedTicketResponse, RevokeBookedTicketResponse } from "../types/BookedTicket";
 import { BookTicketRequest, BookTicketResponse, GetAvailableTicketsResponse } from "../types/Ticket";
 
 const API_BASE_URL = "https://localhost:7255/api/v1";
@@ -10,7 +10,7 @@ export function getAvailableTickets(query?: string) {
     ); 
 }
 
-export function bookTicket(data: BookTicketRequest) {
+export async function bookTicket(data: BookTicketRequest) {
     return fetcher<BookTicketResponse>(
         `${API_BASE_URL}/book-ticket`,
         {
@@ -26,7 +26,7 @@ export function getBookedTicket(id: string) {
     );
 }
 
-export function editBookedTicket(data: any) {
+export async function editBookedTicket(data: any) {
     return fetcher(
         `${API_BASE_URL}/edit-booked-ticket`,
         {
@@ -36,12 +36,12 @@ export function editBookedTicket(data: any) {
     );
 }
 
-export function revokeTicket(
+export async function revokeTicket(
     id: string,
     ticketCode: string,
     quantity: number
 ) {
-    return fetcher(
+    return fetcher<RevokeBookedTicketResponse>(
         `${API_BASE_URL}/revoke-ticket/${id}/${ticketCode}/${quantity}`,
         {
             method: "DELETE",

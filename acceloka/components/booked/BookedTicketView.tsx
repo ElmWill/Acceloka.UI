@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { GetBookedTicketResponse } from "@/lib/types/BookedTicket";
 
 interface Props {
@@ -7,18 +8,30 @@ interface Props {
 }
 
 export default function BookedTicketView({ data }: Props) {
+    const router = useRouter();
     return (
         <div className="space-y-8">
-            <div className="border-b pb-4">
-                <h1 className="text-2xl font-semibold">
-                    Booking Summary
-                </h1>
-                <p className="text-gray-600 text-sm mt-1">
-                    Booking ID: {data.bookedTicketId}
-                </p>
-                <p className="mt-2 font-medium">
-                    Total Tickets: {data.totalQuantity}
-                </p>
+            <div className="border-b pb-4 flex justify-between items-start">
+                <div>
+                    <h1 className="text-2xl font-semibold">
+                        Booking Summary
+                    </h1>
+                    <p className="text-gray-600 text-sm mt-1">
+                        Booking ID: {data.bookedTicketId}
+                    </p>
+                    <p className="mt-2 font-medium">
+                        Total Tickets: {data.totalQuantity}
+                    </p>
+                </div>
+
+                <button
+                    onClick={() =>
+                        router.push(`/booked/revoke/${data.bookedTicketId}`)
+                    }
+                    className="bg-red-600 text-white px-5 py-2 rounded-lg hover:bg-red-700 transition"
+                >
+                    Revoke Ticket
+                </button>
             </div>
 
             {data.categories.map((category) => (

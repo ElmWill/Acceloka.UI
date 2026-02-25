@@ -14,6 +14,11 @@ export default function TicketFilter() {
     const [minDate, setMinDate] = useState("");
     const [maxDate, setMaxDate] = useState("");
 
+    const [orderBy, setOrderBy] = useState("");
+    const [orderState, setOrderState] = useState("asc");
+
+
+
     function applyFilter() {
         const params = new URLSearchParams();
 
@@ -29,6 +34,11 @@ export default function TicketFilter() {
             params.set("MaxEventDate", `${maxDate}T23:59:59`);
         }
 
+        if (orderBy) params.set("OrderBy", orderBy);
+        if (orderState) params.set("OrderState", orderState);
+
+
+
         params.set("page", "1");
         console.log(params.toString());
         router.replace(`/tickets?${params.toString()}`);
@@ -36,6 +46,29 @@ export default function TicketFilter() {
 
     return (
         <div className="bg-white p-4 rounded-lg shadow mb-6 grid grid-cols-2 md:grid-cols-3 gap-4">
+            <select
+                className="border p-2 rounded"
+                value={orderBy}
+                onChange={(e) => setOrderBy(e.target.value)}
+            >
+                <option value="">Sort By</option>
+                <option value="categoryname">Category</option>
+                <option value="ticketname">Ticket Name</option>
+                <option value="price">Price</option>
+                <option value="eventdate">Event Date</option>
+                <option value="code">Ticket Code</option>
+            </select>
+
+            <select
+                className="border p-2 rounded"
+                value={orderState}
+                onChange={(e) => setOrderState(e.target.value)}
+                disabled={!orderBy}
+            >
+                <option value="asc">Ascending</option>
+                <option value="desc">Descending</option>
+            </select>
+
             <input
                 className="border p-2 rounded"
                 placeholder="Category"

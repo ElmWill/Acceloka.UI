@@ -1,4 +1,5 @@
 import { fetcher } from "../fetcher";
+import { GetBookedTicketResponse } from "../types/BookedTicket";
 import { BookTicketRequest, BookTicketResponse, GetAvailableTicketsResponse } from "../types/Ticket";
 
 const API_BASE_URL = "https://localhost:7255/api/v1";
@@ -20,7 +21,7 @@ export function bookTicket(data: BookTicketRequest) {
 }
 
 export function getBookedTicket(id: string) {
-    return fetcher(
+    return fetcher<GetBookedTicketResponse>(
         `${API_BASE_URL}/get-booked-ticket/${id}`
     );
 }

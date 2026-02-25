@@ -1,5 +1,5 @@
 import { fetcher } from "../fetcher";
-import { GetAvailableTicketsResponse } from "../types/Ticket";
+import { BookTicketRequest, BookTicketResponse, GetAvailableTicketsResponse } from "../types/Ticket";
 
 const API_BASE_URL = "https://localhost:7255/api/v1";
 
@@ -9,8 +9,8 @@ export function getAvailableTickets(query?: string) {
     ); 
 }
 
-export function bookTicket(data: any) {
-    return fetcher(
+export function bookTicket(data: BookTicketRequest) {
+    return fetcher<BookTicketResponse>(
         `${API_BASE_URL}/book-ticket`,
         {
             method: "POST",

@@ -8,12 +8,12 @@ export interface AvailableTicket {
 }
 
 export interface GetAvailableTicketsResponse {
-  tickets: AvailableTicket[];
-  totalTickets: number;
-  currentPage: number;
-  totalPages: number;
-  orderedBy: string;
-  orderState: "asc" | "desc";
+    tickets: AvailableTicket[];
+    totalTickets: number;
+    currentPage: number;
+    totalPages: number;
+    orderedBy: string;
+    orderState: "asc" | "desc";
 }
 
 export interface PagedResult<T> {
@@ -23,4 +23,28 @@ export interface PagedResult<T> {
     totalPages: number;
     orderedBy: string;
     orderState: "asc" | "desc";
+}
+
+export interface BookTicketItem {
+    ticketCode: string;
+    quantity: number;
+}
+
+export interface BookTicketRequest {
+    tickets: BookTicketItem[];
+}
+
+export interface BookTicketResponse {
+    items: {
+        ticketCode: string;
+        ticketName: string;
+        categoryName: string;
+        price: number;
+        quantity: number;
+    }[];
+    totalPerCategories: {
+        categoryName: string;
+        totalPrice: number;
+    }[];
+    totalPrice: number;
 }

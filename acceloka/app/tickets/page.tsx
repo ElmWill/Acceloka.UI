@@ -3,6 +3,7 @@ import { buildQueryString } from "@/lib/utils/buildQueryString";
 import TicketFilter from "@/components/tickets/TicketFilter";
 import TicketTable from "@/components/tickets/TicketTable";
 import Pagination from "@/components/common/Pagination";
+import BookTicketForm from "@/components/tickets/BookTicketForm";
 
 type PageProps = {
     searchParams: Promise<Record<string, string | string[] | undefined>>;
@@ -42,13 +43,17 @@ export default async function Page({ searchParams }: PageProps) {
                 )}
             </div>
 
-
             <div className="mt-6">
                 <Pagination
                     currentPage={data.currentPage}
                     totalPages={data.totalPages}
                 />
             </div>
+
+            <div className="border-t pt-10">
+                <BookTicketForm />
+            </div>
+
         </div>
     );
 }

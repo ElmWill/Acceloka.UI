@@ -37,8 +37,6 @@ export default function TicketFilter() {
         if (orderBy) params.set("OrderBy", orderBy);
         if (orderState) params.set("OrderState", orderState);
 
-
-
         params.set("page", "1");
         console.log(params.toString());
         router.replace(`/tickets?${params.toString()}`);

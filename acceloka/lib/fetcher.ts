@@ -7,45 +7,28 @@ export async function fetcher<T>(
     const res = await fetch(url, {
         ...options,
         headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
             ...options?.headers,
         },
     });
-    if (!res.ok) {
-        if (!res.ok) {
-            if (res.status === 404) {
-                return {
-                    tickets: [],
-                    totalTickets: 0,
-                    currentPage: 1,
-                    totalPages: 1,
-                } as T;
-            }
-            if (res.status === 400) {
-                return {
-                    tickets: [],
-                    totalTickets: 0,
-                    currentPage: 1,
-                    totalPages: 1,
-                } as T;
-            }
-            const contentType = res.headers.get('content-type');
 
-            if (contentType?.includes('application/problem+json')) {
-                const problem = await res.json();
-                throw new Error(problem.title || 'An error occurred');
-            }
+    const contentType = res.headers.get("content-type");
 
-            throw new Error(`HTTP error! status: ${res.status}`);
-        }
+    let data: any = null;
 
-        const contentType = res.headers.get('content-type');
-
-        if (contentType?.includes('application/problem+json')) {
-            const problem = await res.json();
-            throw new Error(problem.title || 'An error occurred');
-        }
-        throw new Error(`HTTP error! status: ${res.status}`);
+    if (contentType?.includes("application/json")) {
+        data = await res.json();
     }
-    return res.json();
+
+    if (!res.ok) {
+        if (contentType?.includes("application/problem+json")) {
+            throw new Error(data?.title || "Request failed");
+        }
+
+        throw new Error(
+            data?.message || `HTTP error! status: ${res.status}`
+        );
+    }
+
+    return data as T;
 }

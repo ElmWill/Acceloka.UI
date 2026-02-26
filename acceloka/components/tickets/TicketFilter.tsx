@@ -43,7 +43,7 @@ export default function TicketFilter() {
     }
 
     return (
-        <div className="bg-white p-4 rounded-lg shadow mb-6 grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="bg-black p-4 rounded-lg shadow mb-6 grid grid-cols-2 md:grid-cols-3 gap-4">
             <select
                 className="border p-2 rounded"
                 value={orderBy}
@@ -112,7 +112,7 @@ export default function TicketFilter() {
 
             <button
                 onClick={applyFilter}
-                className="col-span-full bg-black text-white py-2 rounded"
+                className="col-span-full bg-white text-black py-2 rounded"
             >
                 Apply Filter
             </button>

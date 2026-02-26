@@ -41,18 +41,18 @@ export default async function Page({ searchParams }: PageProps) {
                 ) : (
                     <TicketTable tickets={data.tickets} />
                 )}
+                <div className="border-t pt-10">
+                    <BookTicketForm />
+                </div>
+                <div className="mt-6">
+                    <Pagination
+                        currentPage={data.currentPage}
+                        totalPages={data.totalPages}
+                    />
+                </div>
             </div>
 
-            <div className="mt-6">
-                <Pagination
-                    currentPage={data.currentPage}
-                    totalPages={data.totalPages}
-                />
-            </div>
 
-            <div className="border-t pt-10">
-                <BookTicketForm />
-            </div>
 
         </div>
     );

@@ -35,6 +35,7 @@ export interface BookTicketRequest {
 }
 
 export interface BookTicketResponse {
+    bookedTicketId: string;
     items: {
         ticketCode: string;
         ticketName: string;

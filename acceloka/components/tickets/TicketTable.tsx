@@ -1,6 +1,6 @@
 "use client";
 
-import {useRouter, useSearchParams} from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { AvailableTicket } from "@/lib/types/Ticket";
 
 export default function TicketTable({ tickets }: { tickets: AvailableTicket[] }) {
@@ -18,24 +18,14 @@ export default function TicketTable({ tickets }: { tickets: AvailableTicket[] })
     }
 
     return (
-        <table className="w-full bg-white rounded shadow">
-            <thead className="bg-gray-100 text-blue-600 font-bold">
+        <table className="w-full bg-black rounded shadow">
+            <thead className="bg-black-100 text-black-600 font-bold">
                 <tr>
-                    <th onClick={() => sort("code")} className="cursor-pointer p-3">
-                        Code
-                    </th>
-                    <th onClick={() => sort("ticketname")} className="cursor-pointer p-3">
-                        Name
-                    </th>
-                    <th onClick={() => sort("categoryname")} className="cursor-pointer p-3">
-                        Category
-                    </th>
-                    <th onClick={() => sort("eventdate")} className="cursor-pointer p-3">
-                        Event Date
-                    </th>
-                    <th onClick={() => sort("price")} className="cursor-pointer p-3">
-                        Price
-                    </th>
+                    <th className="p-3">Code</th>
+                    <th className="p-3">Name</th>
+                    <th className="p-3">Category</th>
+                    <th className="p-3">Event Date</th>
+                    <th className="p-3">Price</th>
                     <th className="p-3">Quota</th>
                 </tr>
             </thead>

@@ -7,6 +7,7 @@ import {
     AvailableTicket,
 } from "@/lib/types/Ticket";
 import { bookTicket, getAvailableTickets } from "@/lib/api/tickets";
+import CopyableId from "../common/CopyableId";
 
 export default function BookTicketForm() {
     const [tickets, setTickets] = useState<BookTicketItem[]>([
@@ -92,11 +93,7 @@ export default function BookTicketForm() {
 
 
     return (
-        <div className="max-w-3xl mx-auto bg-white shadow-xl rounded-2xl p-8">
-            <h2 className="text-2xl font-semibold mb-6">
-                Book Tickets
-            </h2>
-
+        <div className="max-w-3xl bg-black shadow-xl rounded-2xl p-8">
             <div className="space-y-4">
                 {tickets.map((ticket, index) => {
                     const quota = quotas[index];
@@ -189,8 +186,13 @@ export default function BookTicketForm() {
             )}
 
             {result && (
-                <div className="mt-8 border-t pt-6">
-                    <h3 className="text-lg font-semibold mb-4">
+                <div className="mt-8 border-t pt-6 space-y-6">
+                    <CopyableId
+                        value={result.bookedTicketId}
+                        label="Booking ID"
+                    />
+
+                    <h3 className="text-lg font-semibold">
                         Booking Summary
                     </h3>
 
@@ -222,6 +224,7 @@ export default function BookTicketForm() {
                     </div>
                 </div>
             )}
+
         </div>
     );
 }

@@ -28,7 +28,7 @@ export default async function Page({ searchParams }: PageProps) {
     const data = await getAvailableTickets(query);
 
     return (
-        <div className="p-6 max-w-6xl mx-auto">
+        <div className="min-h-screen bg-gradient-to-b from-white to-gray-100 dark:from-gray-950 dark:to-gray-900 transition-colors duration-500">
 
             <TicketFilter />
 

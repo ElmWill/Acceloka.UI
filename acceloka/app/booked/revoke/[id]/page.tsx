@@ -24,7 +24,7 @@ export default async function RevokeBookedTicketPage({
   }
 
   return (
-    <div className="max-w-5xl mx-auto py-10 space-y-8 px-10">
+    <div className="min-h-screen bg-gradient-to-b from-white to-gray-100 dark:from-gray-950 dark:to-gray-900 transition-colors duration-500 px-10 py-10 max-w-5xl mx-auto">
       <div className="flex justify-between items-center border-b pb-4">
         <div>
           <h1 className="text-2xl font-semibold">

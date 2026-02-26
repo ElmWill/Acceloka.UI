@@ -60,7 +60,7 @@ export default function BookedTicketPage() {
         );
 
     return (
-        <div className="max-w-4xl mx-auto p-8">
+        <div className="min-h-screen bg-gradient-to-b from-white to-gray-100 dark:from-gray-950 dark:to-gray-900 transition-colors duration-500 px-10 py-10 max-w-5xl mx-auto">
             <BookedTicketView data={data} />
         </div>
     );

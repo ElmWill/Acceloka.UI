@@ -2,8 +2,8 @@ import Link from "next/link";
 
 export default function NotFound() {
     return (
-        <div className="min-h-[80vh] flex flex-col items-center justify-center text-center px-6">
-            
+        <div className="min-h-screen bg-gradient-to-b from-white to-gray-100 dark:from-gray-950 dark:to-gray-900 transition-colors duration-500 items-center justify-center flex flex-col text-center px-6">
+
             <h1 className="text-7xl font-extrabold bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text">
                 404
             </h1>

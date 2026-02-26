@@ -42,8 +42,9 @@ export default async function RevokeBookedTicketPage({
           Back to Booking
         </Link>
       </div>
-
-      <RevokeTicketList booking={booking} />
+      <div className="mt-8">
+        <RevokeTicketList booking={booking} />
+      </div>
     </div>
   );
 }

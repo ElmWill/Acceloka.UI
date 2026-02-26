@@ -50,9 +50,11 @@ export default async function EditBookedTicketPage({
                         Revoke Tickets
                     </Link>
                 </div>
+            </div >
+            <div className="mt-8">
+                <EditTicketList booking={booking} />
             </div>
-
-            <EditTicketList booking={booking} />
+            
         </div>
     );
 }

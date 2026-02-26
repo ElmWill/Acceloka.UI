@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import { useParams } from "next/navigation";
 import { getBookedTicket } from "@/lib/api/tickets";
 import { GetBookedTicketResponse } from "@/lib/types/BookedTicket";
@@ -9,6 +10,7 @@ import BookedTicketView from "@/components/booked/BookedTicketView";
 export default function BookedTicketPage() {
     const params = useParams();
     const id = params?.id as string;
+    const router = useRouter();
 
     const [data, setData] = useState<GetBookedTicketResponse | null>(null);
     const [loading, setLoading] = useState(true);
@@ -22,6 +24,11 @@ export default function BookedTicketPage() {
                 const result = await getBookedTicket(id);
                 setData(result);
             } catch (err: any) {
+                if (err.status === 404) {
+                    router.replace("/not-found");
+                    return;
+                }
+
                 setError(err.message);
             } finally {
                 setLoading(false);

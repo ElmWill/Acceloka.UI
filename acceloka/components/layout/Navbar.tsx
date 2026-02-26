@@ -20,7 +20,7 @@ export default function Navbar() {
             <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
 
                 <Link
-                    href="/tickets"
+                    href="/"
                     className="text-xl font-bold text-blue-600"
                 >
                     ACCELOKA

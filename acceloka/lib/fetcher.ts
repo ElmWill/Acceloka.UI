@@ -21,13 +21,16 @@ export async function fetcher<T>(
     }
 
     if (!res.ok) {
-        if (contentType?.includes("application/problem+json")) {
-            throw new Error(data?.title || "Request failed");
-        }
+        const error = new Error(
+            data?.title ||
+            data?.message ||
+            `HTTP error! status: ${res.status}`
+        ) as Error & { status?: number; data?: any };
 
-        throw new Error(
-            data?.message || `HTTP error! status: ${res.status}`
-        );
+        error.status = res.status;
+        error.data = data;
+
+        throw error;
     }
 
     return data as T;

@@ -30,3 +30,16 @@ export interface RevokeBookedTicketResponse {
   remainingQuantity: number;
 }
 
+export interface EditBookedTicketRequest {
+  bookedTicketId: string;
+  ticketCode: string;
+  quantity: number;
+}
+
+export interface EditBookedTicketResponse {
+  ticketCode: string;
+  ticketName: string;
+  categoryName: string;
+  newQuantity: number;
+}
+

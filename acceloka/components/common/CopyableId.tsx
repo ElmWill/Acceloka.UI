@@ -24,16 +24,28 @@ export default function CopyableId({
 
   return (
     <div className="space-y-1">
-      <p className="bg-black text-sm text-gray-500">{label}</p>
+    <p className="text-sm font-medium text-gray-600 dark:text-gray-400">
+      {label}
+    </p>
 
-      <div className="flex items-center gap-3 bg-black border rounded-lg px-3 py-2">
-        <span className="text-sm font-mono break-all text-gray-50">
-          {value}
-        </span>
+          <div className="flex items-center justify-between gap-3
+                    bg-white/80 dark:bg-gray-900/70
+                    border border-gray-200 dark:border-gray-800
+                    rounded-xl px-3 py-2.5
+                    backdrop-blur-md">
+      <span className="text-sm font-mono break-all
+                       text-gray-800 dark:text-gray-100">
+        {value}
+      </span>
 
         <button
           onClick={handleCopy}
-          className="text-sm px-3 py-1 rounded-md border border-gray-600 bg-gray-900 text-gray-50 hover:bg-gray-800 transition"
+                  className={`text-sm px-3 py-1.5 rounded-lg font-medium
+                    border transition-all duration-200
+                    ${
+                      copied
+                        ? "bg-green-600 text-white border-green-600"
+                        : "bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-200 border-gray-300 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800"}`}
         >
           {copied ? "Copied ✓" : "Copy"}
         </button>

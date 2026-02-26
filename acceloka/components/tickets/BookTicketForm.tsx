@@ -93,7 +93,8 @@ export default function BookTicketForm() {
 
 
     return (
-        <div className="max-w-3xl bg-black shadow-xl rounded-2xl p-8">
+        <div className="max-w-3xl bg-white/80 dark:bg-gray-900/70 backdrop-blur-md border border-gray-200 dark:border-gray-800 shadow-xl rounded-2xl p-8">
+
             <div className="space-y-4">
                 {tickets.map((ticket, index) => {
                     const quota = quotas[index];
@@ -109,27 +110,32 @@ export default function BookTicketForm() {
                                     placeholder="Ticket Code"
                                     value={ticket.ticketCode}
                                     onChange={(e) =>
-                                        updateField(
-                                            index,
-                                            "ticketCode",
-                                            e.target.value
-                                        )
+                                        updateField(index, "ticketCode", e.target.value)
                                     }
-                                    className="w-full border rounded-lg p-2 focus:ring-2 focus:ring-blue-500"
+                                    className="w-full border border-gray-300 dark:border-gray-700
+                           rounded-xl p-2.5
+                           bg-white dark:bg-gray-900
+                           text-gray-800 dark:text-gray-100
+                           placeholder:text-gray-400 dark:placeholder:text-gray-500
+                           focus:outline-none focus:ring-2 focus:ring-blue-500
+                           transition"
                                 />
-                                {/* 
-                                {quota !== undefined && quota !== null && (
-                                    <p
-                                        className={`text-sm mt-1 ${quota > 0
-                                            ? "text-green-600"
-                                            : "text-red-500"
-                                            }`}
-                                    >
-                                        {quota > 0
-                                            ? `Quota Available: ${quota}`
-                                            : "Ticket not found / No quota"}
-                                    </p>
-                                )} */}
+
+                                {/* quota indicator (optional — uncomment if needed)
+              {quota !== undefined && quota !== null && (
+                <p
+                  className={`text-sm mt-1 ${
+                    quota > 0
+                      ? "text-green-600 dark:text-green-400"
+                      : "text-red-500"
+                  }`}
+                >
+                  {quota > 0
+                    ? `Quota Available: ${quota}`
+                    : "Ticket not found / No quota"}
+                </p>
+              )}
+              */}
                             </div>
 
                             <div className="col-span-3">
@@ -138,13 +144,14 @@ export default function BookTicketForm() {
                                     min={1}
                                     value={ticket.quantity}
                                     onChange={(e) =>
-                                        updateField(
-                                            index,
-                                            "quantity",
-                                            Number(e.target.value)
-                                        )
+                                        updateField(index, "quantity", Number(e.target.value))
                                     }
-                                    className="w-full border rounded-lg p-2 focus:ring-2 focus:ring-blue-500"
+                                    className="w-full border border-gray-300 dark:border-gray-700
+                           rounded-xl p-2.5
+                           bg-white dark:bg-gray-900
+                           text-gray-800 dark:text-gray-100
+                           focus:outline-none focus:ring-2 focus:ring-blue-500
+                           transition"
                                 />
                             </div>
 
@@ -152,7 +159,9 @@ export default function BookTicketForm() {
                                 <button
                                     onClick={() => removeRow(index)}
                                     disabled={tickets.length === 1}
-                                    className="text-red-500 hover:text-red-700 disabled:opacity-40"
+                                    className="text-red-500 hover:text-red-600
+                           disabled:opacity-40 disabled:cursor-not-allowed
+                           font-medium transition"
                                 >
                                     Remove
                                 </button>
@@ -162,10 +171,11 @@ export default function BookTicketForm() {
                 })}
             </div>
 
-            <div className="flex justify-between mt-6">
+            <div className="flex justify-between items-center mt-6">
                 <button
                     onClick={addRow}
-                    className="text-blue-600 hover:underline"
+                    className="text-blue-600 dark:text-blue-400
+                   hover:underline font-medium transition"
                 >
                     + Add Ticket
                 </button>
@@ -173,33 +183,41 @@ export default function BookTicketForm() {
                 <button
                     onClick={submitBooking}
                     disabled={!isValid || loading}
-                    className="bg-blue-600 text-white px-6 py-2 rounded-xl hover:bg-blue-700 disabled:opacity-50"
+                    className="bg-blue-600 hover:bg-blue-700
+                   text-white font-medium
+                   px-6 py-2.5 rounded-xl
+                   disabled:opacity-50 disabled:cursor-not-allowed
+                   transition shadow-md hover:shadow-lg"
                 >
                     {loading ? "Processing..." : "Book Tickets"}
                 </button>
             </div>
 
             {error && (
-                <div className="mt-6 bg-red-50 border border-red-300 text-red-600 p-3 rounded-lg">
+                <div className="mt-6 bg-red-50 dark:bg-red-900/30
+                      border border-red-300 dark:border-red-800
+                      text-red-600 dark:text-red-300
+                      p-3 rounded-xl">
                     {error}
                 </div>
             )}
 
             {result && (
-                <div className="mt-8 border-t pt-6 space-y-6">
+                <div className="mt-8 border-t border-gray-200 dark:border-gray-800 pt-6 space-y-6">
+
                     <CopyableId
                         value={result.bookedTicketId}
                         label="Booking ID"
                     />
 
-                    <h3 className="text-lg font-semibold">
+                    <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-100">
                         Booking Summary
                     </h3>
 
                     {result.items.map((item, idx) => (
                         <div
                             key={idx}
-                            className="flex justify-between text-sm"
+                            className="flex justify-between text-sm text-gray-700 dark:text-gray-300"
                         >
                             <span>
                                 {item.ticketName} ({item.quantity})
@@ -213,7 +231,7 @@ export default function BookTicketForm() {
                         </div>
                     ))}
 
-                    <div className="mt-6 text-lg font-bold flex justify-between">
+                    <div className="mt-6 text-lg font-bold flex justify-between text-gray-900 dark:text-gray-100">
                         <span>Total</span>
                         <span>
                             Rp{" "}
@@ -224,7 +242,6 @@ export default function BookTicketForm() {
                     </div>
                 </div>
             )}
-
         </div>
     );
 }

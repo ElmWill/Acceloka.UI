@@ -43,9 +43,13 @@ export default function TicketFilter() {
     }
 
     return (
-        <div className="bg-black p-4 rounded-lg shadow mb-6 grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="bg-white/80 dark:bg-gray-900/70 backdrop-blur-md border border-gray-200 dark:border-gray-800 p-5 rounded-2xl shadow-lg mb-6 grid grid-cols-2 md:grid-cols-3 gap-4">
+
             <select
-                className="border p-2 rounded"
+                className="border border-gray-300 dark:border-gray-700 p-2.5 rounded-xl
+                 bg-white dark:bg-gray-900
+                 text-gray-800 dark:text-gray-100
+                 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 value={orderBy}
                 onChange={(e) => setOrderBy(e.target.value)}
             >
@@ -58,7 +62,11 @@ export default function TicketFilter() {
             </select>
 
             <select
-                className="border p-2 rounded"
+                className="border border-gray-300 dark:border-gray-700 p-2.5 rounded-xl
+                 bg-white dark:bg-gray-900
+                 text-gray-800 dark:text-gray-100
+                 disabled:opacity-50
+                 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 value={orderState}
                 onChange={(e) => setOrderState(e.target.value)}
                 disabled={!orderBy}
@@ -68,21 +76,33 @@ export default function TicketFilter() {
             </select>
 
             <input
-                className="border p-2 rounded"
+                className="border border-gray-300 dark:border-gray-700 p-2.5 rounded-xl
+                 bg-white dark:bg-gray-900
+                 text-gray-800 dark:text-gray-100
+                 placeholder:text-gray-400 dark:placeholder:text-gray-500
+                 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="Category"
                 value={categoryName}
                 onChange={(e) => setCategoryName(e.target.value)}
             />
 
             <input
-                className="border p-2 rounded"
+                className="border border-gray-300 dark:border-gray-700 p-2.5 rounded-xl
+                 bg-white dark:bg-gray-900
+                 text-gray-800 dark:text-gray-100
+                 placeholder:text-gray-400 dark:placeholder:text-gray-500
+                 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="Ticket Name"
                 value={ticketName}
                 onChange={(e) => setTicketName(e.target.value)}
             />
 
             <input
-                className="border p-2 rounded"
+                className="border border-gray-300 dark:border-gray-700 p-2.5 rounded-xl
+                 bg-white dark:bg-gray-900
+                 text-gray-800 dark:text-gray-100
+                 placeholder:text-gray-400 dark:placeholder:text-gray-500
+                 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="Ticket Code"
                 value={ticketCode}
                 onChange={(e) => setTicketCode(e.target.value)}
@@ -90,7 +110,11 @@ export default function TicketFilter() {
 
             <input
                 type="number"
-                className="border p-2 rounded"
+                className="border border-gray-300 dark:border-gray-700 p-2.5 rounded-xl
+                 bg-white dark:bg-gray-900
+                 text-gray-800 dark:text-gray-100
+                 placeholder:text-gray-400 dark:placeholder:text-gray-500
+                 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="Max Price"
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
@@ -98,21 +122,32 @@ export default function TicketFilter() {
 
             <input
                 type="date"
-                className="border p-2 rounded"
+                className="border border-gray-300 dark:border-gray-700 p-2.5 rounded-xl
+                 bg-white dark:bg-gray-900
+                 text-gray-800 dark:text-gray-100
+                 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 value={minDate}
                 onChange={(e) => setMinDate(e.target.value)}
             />
 
             <input
                 type="date"
-                className="border p-2 rounded"
+                className="border border-gray-300 dark:border-gray-700 p-2.5 rounded-xl
+                 bg-white dark:bg-gray-900
+                 text-gray-800 dark:text-gray-100
+                 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 value={maxDate}
                 onChange={(e) => setMaxDate(e.target.value)}
             />
 
             <button
                 onClick={applyFilter}
-                className="col-span-full bg-white text-black py-2 rounded"
+                className="col-span-full mt-2
+                 bg-blue-600 hover:bg-blue-700
+                 text-white font-medium
+                 py-2.5 rounded-xl
+                 transition-all duration-200
+                 shadow-md hover:shadow-lg"
             >
                 Apply Filter
             </button>

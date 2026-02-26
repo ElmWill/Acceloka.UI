@@ -46,7 +46,7 @@ export default function RevokeBookedTicketCard({
   };
 
   return (
-    <div className="border rounded-xl p-5 bg-white shadow-sm flex justify-between items-center">
+    <div className="border rounded-xl p-5 bg-black shadow-sm flex justify-between items-center">
       <div>
         <h3 className="font-semibold text-lg">
           {ticket.ticketName}

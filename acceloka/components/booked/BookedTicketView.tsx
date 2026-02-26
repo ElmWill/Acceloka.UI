@@ -29,7 +29,7 @@ export default function BookedTicketView({ data }: Props) {
                         onClick={() =>
                             router.push(`/booked/edit/${data.bookedTicketId}`)
                         }
-                        className="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition"
+                        className="text-white px-5 py-2 border rounded-lg hover:bg-blue-700 transition"
                     >
                         Edit Ticket
                     </button>
@@ -38,7 +38,7 @@ export default function BookedTicketView({ data }: Props) {
                         onClick={() =>
                             router.push(`/booked/revoke/${data.bookedTicketId}`)
                         }
-                        className="bg-red-600 text-white px-5 py-2 rounded-lg hover:bg-red-700 transition"
+                        className="text-white px-5 py-2 border rounded-lg hover:bg-red-600 transition"
                     >
                         Revoke Ticket
                     </button>

@@ -45,7 +45,7 @@ export default function EditBookedTicketCard({
   };
 
   return (
-    <div className="border rounded-xl p-5 bg-white shadow-sm space-y-4">
+    <div className="border rounded-xl p-5 bg-black shadow-sm space-y-4">
       <div>
         <h3 className="font-semibold text-lg">
           {ticket.ticketName}
@@ -70,7 +70,7 @@ export default function EditBookedTicketCard({
         <button
           onClick={handleSave}
           disabled={loading || quantity === ticket.quantity}
-          className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 disabled:opacity-50 transition"
+          className="text-white border px-4 py-2 rounded-lg hover:bg-blue-600 disabled:opacity-50 transition"
         >
           {loading ? "Saving..." : "Save"}
         </button>

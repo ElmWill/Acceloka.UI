@@ -24,7 +24,7 @@ export default async function EditBookedTicketPage({
     }
 
     return (
-        <div className="max-w-5xl mx-auto py-10 space-y-8">
+        <div className="max-w-5xl mx-auto py-10 space-y-8 px-10">
             <div className="flex justify-between items-center border-b pb-4">
                 <div>
                     <h1 className="text-2xl font-semibold">
@@ -38,14 +38,14 @@ export default async function EditBookedTicketPage({
                 <div className="flex gap-3">
                     <Link
                         href={`/booked/${booking.bookedTicketId}`}
-                        className="px-4 py-2 border rounded-lg hover:bg-gray-100 transition"
+                        className="px-4 py-2 border rounded-lg hover:bg-blue-600 transition"
                     >
                         View Booking
                     </Link>
 
                     <Link
                         href={`/booked/revoke/${booking.bookedTicketId}`}
-                        className="px-4 py-2 border rounded-lg hover:bg-gray-100 transition"
+                        className="px-4 py-2 border rounded-lg hover:bg-red-600 transition"
                     >
                         Revoke Tickets
                     </Link>

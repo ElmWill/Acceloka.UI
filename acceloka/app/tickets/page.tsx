@@ -29,7 +29,6 @@ export default async function Page({ searchParams }: PageProps) {
 
     return (
         <div className="p-6 max-w-6xl mx-auto">
-            <h1 className="text-2xl font-bold mb-6">Available Tickets</h1>
 
             <TicketFilter />
 

@@ -24,7 +24,7 @@ export default async function RevokeBookedTicketPage({
   }
 
   return (
-    <div className="max-w-5xl mx-auto py-10 space-y-8">
+    <div className="max-w-5xl mx-auto py-10 space-y-8 px-10">
       <div className="flex justify-between items-center border-b pb-4">
         <div>
           <h1 className="text-2xl font-semibold">
@@ -37,7 +37,7 @@ export default async function RevokeBookedTicketPage({
 
         <Link
           href={`/booked/${booking.bookedTicketId}`}
-          className="px-4 py-2 border rounded-lg hover:bg-gray-100 transition"
+          className="px-4 py-2 border rounded-lg hover:bg-blue-600 transition"
         >
           Back to Booking
         </Link>

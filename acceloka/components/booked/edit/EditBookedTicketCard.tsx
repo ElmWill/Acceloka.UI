@@ -61,7 +61,7 @@ export default function EditBookedTicketCard({
       <div className="flex items-center gap-4">
         <input
           type="number"
-          min={0}
+          min={1}
           value={quantity}
           onChange={(e) => setQuantity(Number(e.target.value))}
           className="w-24 border rounded-lg px-3 py-2"

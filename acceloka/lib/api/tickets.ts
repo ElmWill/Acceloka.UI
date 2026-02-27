@@ -2,7 +2,7 @@ import { fetcher } from "../fetcher";
 import { EditBookedTicketRequest, EditBookedTicketResponse, GetBookedTicketResponse, RevokeBookedTicketResponse } from "../types/BookedTicket";
 import { BookTicketRequest, BookTicketResponse, GetAvailableTicketsResponse } from "../types/Ticket";
 
-const API_BASE_URL = "https://localhost:7255/api/v1";
+const API_BASE_URL = "http://localhost:5002/api/v1";
 
 export function getAvailableTickets(query?: string) {
     return fetcher<GetAvailableTicketsResponse>(

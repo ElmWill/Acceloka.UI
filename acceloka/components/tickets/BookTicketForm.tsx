@@ -154,7 +154,7 @@ export default function BookTicketForm() {
                   disabled={tickets.length === 1}
                   className="text-red-500 hover:text-red-600
                            disabled:opacity-40 disabled:cursor-not-allowed
-                           font-medium transition"
+                           font-medium transition hover:underline"
                 >
                   Remove
                 </button>
@@ -180,7 +180,7 @@ export default function BookTicketForm() {
                    text-white font-medium
                    px-6 py-2.5 rounded-xl
                    disabled:opacity-50 disabled:cursor-not-allowed
-                   transition shadow-md hover:shadow-lg"
+                   transition shadow-md hover:shadow-lg hover:scale-101"
         >
           {loading ? "Processing..." : "Book Tickets"}
         </button>

@@ -8,7 +8,7 @@ export default function NotFound() {
       </h1>
 
       <p className="mt-4 text-xl text-gray-600">
-        Booking not found or page does not exist.
+        Page does not exist.
       </p>
 
       <Link

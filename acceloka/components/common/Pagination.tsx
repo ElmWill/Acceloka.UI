@@ -29,7 +29,7 @@ export default function Pagination({
                  text-gray-700 dark:text-gray-200
                  hover:bg-gray-50 dark:hover:bg-gray-800
                  disabled:opacity-40 disabled:cursor-not-allowed
-                 transition"
+                 transition hover:scale-105"
       >
         Previous
       </button>
@@ -55,7 +55,7 @@ export default function Pagination({
                  text-gray-700 dark:text-gray-200
                  hover:bg-gray-50 dark:hover:bg-gray-800
                  disabled:opacity-40 disabled:cursor-not-allowed
-                 transition"
+                 transition hover:scale-105"
       >
         Next
       </button>

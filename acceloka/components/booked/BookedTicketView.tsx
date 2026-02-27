@@ -25,14 +25,14 @@ export default function BookedTicketView({ data }: Props) {
         <div className="flex gap-3">
           <button
             onClick={() => router.push(`/booked/edit/${data.bookedTicketId}`)}
-            className="text-white px-5 py-2 border rounded-lg hover:bg-blue-700 transition"
+            className="text-white px-5 py-2 border rounded-lg bg-blue-600 hover:scale-105 transition"
           >
             Edit Ticket
           </button>
 
           <button
             onClick={() => router.push(`/booked/revoke/${data.bookedTicketId}`)}
-            className="text-white px-5 py-2 border rounded-lg hover:bg-red-600 transition"
+            className="text-white px-5 py-2 border rounded-lg bg-red-600 hover:scale-105 transition"
           >
             Revoke Ticket
           </button>

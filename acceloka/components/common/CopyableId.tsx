@@ -42,14 +42,14 @@ export default function CopyableId({ value, label = "ID" }: Props) {
         <button
           onClick={handleCopy}
           className={`text-sm px-3 py-1.5 rounded-lg font-medium
-                    border transition-all duration-200
+                    border transition-all duration-200 hover:scale-105
                     ${
                       copied
                         ? "bg-green-600 text-white border-green-600"
                         : "bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-200 border-gray-300 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800"
                     }`}
         >
-          {copied ? "Copied ✓" : "Copy"}
+          {copied ? "Copied" : "Copy"}
         </button>
       </div>
     </div>

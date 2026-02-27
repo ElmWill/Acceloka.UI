@@ -10,7 +10,7 @@ export default function Navbar() {
 
   const handleSearch = () => {
     if (!bookingId.trim()) return;
-    router.push(`/booked/${bookingId.trim()}`);
+    window.open(`/booked/${bookingId.trim()}`);
     setBookingId("");
   };
 
@@ -35,10 +35,10 @@ export default function Navbar() {
         <div className="flex items-center gap-6">
           <Link
             href="/tickets"
-            className="px-4 py-2 rounded-xl
+            className="px-4 py-1 rounded-xl
                        bg-blue-600 hover:bg-blue-700
                        text-white font-medium
-                       transition shadow-md hover:shadow-lg"
+                       transition shadow-md hover:shadow-lg hover:scale-105"
           >
             Book Ticket
           </Link>
@@ -70,7 +70,7 @@ export default function Navbar() {
                          bg-gray-100 dark:bg-gray-800
                          hover:bg-gray-200 dark:hover:bg-gray-700
                          text-gray-800 dark:text-gray-200
-                         transition"
+                         transition hover:scale-105"
             >
               View
             </button>

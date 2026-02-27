@@ -29,12 +29,11 @@ export default function EditBookedTicketCard({
       setLoading(true);
       setError(null);
 
-      const result: EditBookedTicketResponse =
-        await editBookedTicket(
-          bookedTicketId,
-          ticket.ticketCode,
-          quantity
-        );
+      const result: EditBookedTicketResponse = await editBookedTicket(
+        bookedTicketId,
+        ticket.ticketCode,
+        quantity,
+      );
 
       onUpdate(ticket.ticketCode, result.newQuantity);
     } catch (err: any) {
@@ -47,12 +46,8 @@ export default function EditBookedTicketCard({
   return (
     <div className="border rounded-xl p-5 bg-black shadow-sm space-y-4">
       <div>
-        <h3 className="font-semibold text-lg">
-          {ticket.ticketName}
-        </h3>
-        <p className="text-sm text-gray-500">
-          {categoryName}
-        </p>
+        <h3 className="font-semibold text-lg">{ticket.ticketName}</h3>
+        <p className="text-sm text-gray-500">{categoryName}</p>
         <p className="text-sm text-gray-500">
           Event Date: {new Date(ticket.eventDate).toLocaleDateString()}
         </p>
@@ -76,11 +71,7 @@ export default function EditBookedTicketCard({
         </button>
       </div>
 
-      {error && (
-        <p className="text-red-500 text-sm">
-          {error}
-        </p>
-      )}
+      {error && <p className="text-red-500 text-sm">{error}</p>}
     </div>
   );
 }

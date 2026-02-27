@@ -6,10 +6,7 @@ import EditBookedTicketCard from "./EditBookedTicketCard";
 interface Props {
   bookedTicketId: string;
   category: CategoryGroupResponse;
-  onTicketUpdate: (
-    ticketCode: string,
-    newQuantity: number
-  ) => void;
+  onTicketUpdate: (ticketCode: string, newQuantity: number) => void;
 }
 
 export default function EditBookedTicketCategoryGroup({
@@ -21,9 +18,7 @@ export default function EditBookedTicketCategoryGroup({
 
   return (
     <div className="space-y-4">
-      <h2 className="text-xl font-semibold">
-        {category.categoryName}
-      </h2>
+      <h2 className="text-xl font-semibold">{category.categoryName}</h2>
 
       {category.tickets.map((ticket) => (
         <EditBookedTicketCard

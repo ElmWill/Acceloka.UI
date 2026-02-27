@@ -1,24 +1,20 @@
 "use client";
 
 import { useState } from "react";
-import {
-  GetBookedTicketResponse,
-} from "@/lib/types/BookedTicket";
+import { GetBookedTicketResponse } from "@/lib/types/BookedTicket";
 import RevokeCategoryGroup from "./RevokeBookedTicketCategoryGroup";
 
 interface Props {
   booking: GetBookedTicketResponse;
 }
 
-export default function RevokeTicketList({
-  booking,
-}: Props) {
+export default function RevokeTicketList({ booking }: Props) {
   const [bookingState, setBookingState] =
     useState<GetBookedTicketResponse>(booking);
 
   const handleTicketUpdate = (
     ticketCode: string,
-    remainingQuantity: number
+    remainingQuantity: number,
   ) => {
     setBookingState((prev) => ({
       ...prev,
@@ -28,16 +24,14 @@ export default function RevokeTicketList({
           .map((ticket) =>
             ticket.ticketCode === ticketCode
               ? { ...ticket, quantity: remainingQuantity }
-              : ticket
+              : ticket,
           )
           .filter((t) => t.quantity > 0),
       })),
     }));
   };
 
-  const hasTickets = bookingState.categories.some(
-    (c) => c.tickets.length > 0
-  );
+  const hasTickets = bookingState.categories.some((c) => c.tickets.length > 0);
 
   if (!hasTickets) {
     return (

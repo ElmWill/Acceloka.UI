@@ -30,12 +30,11 @@ export default function RevokeBookedTicketCard({
       setLoading(true);
       setError(null);
 
-      const result: RevokeBookedTicketResponse =
-        await revokeTicket(
-          bookedTicketId,
-          ticket.ticketCode,
-          1
-        );
+      const result: RevokeBookedTicketResponse = await revokeTicket(
+        bookedTicketId,
+        ticket.ticketCode,
+        1,
+      );
 
       onUpdate(ticket.ticketCode, result.remainingQuantity);
     } catch (err: any) {
@@ -48,28 +47,17 @@ export default function RevokeBookedTicketCard({
   return (
     <div className="border rounded-xl p-5 bg-black shadow-sm flex justify-between items-center">
       <div>
-        <h3 className="font-semibold text-lg">
-          {ticket.ticketName}
-        </h3>
-        <p className="text-sm text-gray-500">
-          {categoryName}
-        </p>
+        <h3 className="font-semibold text-lg">{ticket.ticketName}</h3>
+        <p className="text-sm text-gray-500">{categoryName}</p>
         <p className="text-sm text-gray-500">
           Event Date: {new Date(ticket.eventDate).toLocaleDateString()}
         </p>
 
         <p className="mt-2 font-medium">
-          Remaining:{" "}
-          <span className="text-blue-600">
-            {ticket.quantity}
-          </span>
+          Remaining: <span className="text-blue-600">{ticket.quantity}</span>
         </p>
 
-        {error && (
-          <p className="text-red-500 text-sm mt-2">
-            {error}
-          </p>
-        )}
+        {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
       </div>
 
       <button

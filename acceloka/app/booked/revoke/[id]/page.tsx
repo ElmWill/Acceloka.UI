@@ -27,9 +27,7 @@ export default async function RevokeBookedTicketPage({
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-100 dark:from-gray-950 dark:to-gray-900 transition-colors duration-500 px-10 py-10 max-w-5xl mx-auto">
       <div className="flex justify-between items-center border-b pb-4">
         <div>
-          <h1 className="text-2xl font-semibold">
-            Revoke Tickets
-          </h1>
+          <h1 className="text-2xl font-semibold">Revoke Tickets</h1>
           <p className="text-gray-500 text-sm mt-1">
             Booking ID: {booking.bookedTicketId}
           </p>

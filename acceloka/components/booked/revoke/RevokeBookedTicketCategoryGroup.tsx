@@ -1,17 +1,12 @@
 "use client";
 
-import {
-  CategoryGroupResponse,
-} from "@/lib/types/BookedTicket";
+import { CategoryGroupResponse } from "@/lib/types/BookedTicket";
 import RevokeBookedTicketCard from "./RevokeBookedTicketCard";
 
 interface Props {
   bookedTicketId: string;
   category: CategoryGroupResponse;
-  onTicketUpdate: (
-    ticketCode: string,
-    remainingQuantity: number
-  ) => void;
+  onTicketUpdate: (ticketCode: string, remainingQuantity: number) => void;
 }
 
 export default function RevokeCategoryGroup({
@@ -23,9 +18,7 @@ export default function RevokeCategoryGroup({
 
   return (
     <div className="space-y-4">
-      <h2 className="text-xl font-semibold">
-        {category.categoryName}
-      </h2>
+      <h2 className="text-xl font-semibold">{category.categoryName}</h2>
 
       {category.tickets.map((ticket) => (
         <RevokeBookedTicketCard

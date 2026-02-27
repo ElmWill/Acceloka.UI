@@ -1,20 +1,20 @@
 export interface GetBookedTicketResponse {
-    bookedTicketId: string;
-    totalQuantity: number;
-    categories: CategoryGroupResponse[];
+  bookedTicketId: string;
+  totalQuantity: number;
+  categories: CategoryGroupResponse[];
 }
 
 export interface CategoryGroupResponse {
-    categoryName: string;
-    totalQuantityPerCategory: number;
-    tickets: TicketDetailResponse[];
+  categoryName: string;
+  totalQuantityPerCategory: number;
+  tickets: TicketDetailResponse[];
 }
 
 export interface TicketDetailResponse {
-    ticketCode: string;
-    ticketName: string;
-    eventDate: string;
-    quantity: number;
+  ticketCode: string;
+  ticketName: string;
+  eventDate: string;
+  quantity: number;
 }
 
 export interface RevokeBookedTicketRequest {
@@ -42,4 +42,3 @@ export interface EditBookedTicketResponse {
   categoryName: string;
   newQuantity: number;
 }
-
